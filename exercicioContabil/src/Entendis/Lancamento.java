@@ -1,7 +1,4 @@
 package Entendis;
-import Entendis.ContaAtivo;
-import Entendis.ContaPassivo;
-import Entendis.ContaPatrimonio;
 
 public class Lancamento {
 	private String descricao;
@@ -9,9 +6,11 @@ public class Lancamento {
 	private Conta debito;
 	private Conta credito;
 	
-	public Lancamento (String descricao, double valor) {
+	public Lancamento (String descricao, double valor, Conta credito, Conta debito) {
 		this.setDescricao(descricao);
 		this.setValor(valor);
+		this.credito = credito;
+		this.debito = debito;
 	}
 	
 	public void setDescricao(String descricao) {
@@ -30,5 +29,13 @@ public class Lancamento {
 		return this.valor;
 	}
 	
-
+	public String toString() {
+		return "Descricao: "
+				+getDescricao()
+				+"\nDebitar: caixa ............. R$ "
+				+getValor()
+				+"\nCreditar: caixa ............ R$ "
+				+getValor();
+	}
+	
 }

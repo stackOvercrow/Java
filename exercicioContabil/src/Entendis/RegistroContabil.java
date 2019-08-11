@@ -3,12 +3,15 @@ package Entendis;
 public class RegistroContabil {
 	private String nomeEmpresa;
 	private int CNPJ;
-	private Conta[] contas = new Conta[0];
-	private Lancamento livroLancamento;
+	private Balanco balanco;
+	private Lancamento livro;
 
-	public RegistroContabil (String nomeEmpresa, int CNPJ) {
+	public RegistroContabil (String nomeEmpresa, int CNPJ, String descricao, double valor, String nomeCredito, String nomeDebito) {
 		this.setCNPJ(CNPJ);
 		this.setNomeEmpresa(nomeEmpresa);
+		Conta credito = balanco.findContaByNome (nomeCredito);
+		Conta debito = balanco.findContaByNome (nomeDebito);
+		Lancamento livro = new Lancamento (descricao, valor, credito, debito); 
 	}
 	
 	public int getCNPJ () {
@@ -26,33 +29,5 @@ public class RegistroContabil {
 	public void setCNPJ(int CNPJ) {
 		this.CNPJ = CNPJ;
 	}
-	
-	public void AddConta(Conta Conta) {
-		Conta[] aux =  new Conta[contas.length + 1];
-		int i=0;
-		
-		for (i=0; i < contas.length; i++) {
-			aux[i] = contas[i];
-		}
-		
-		aux[contas.length] = Conta;
-		contas = aux;
-	}
-	
-	public Conta[] getContas() {
-		Conta[] aux =  new Conta[contas.length + 1];
-		
-		int i=0;
-		
-		for (i=0; i < contas.length; i++) {
-			aux[i] = contas[i];
-		}
 
-		return aux;
-	}
-	
-	public String toString () {
-		return "Registros\n";
-	}
-	
 }
