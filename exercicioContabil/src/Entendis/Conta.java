@@ -17,13 +17,9 @@ public abstract class Conta {
 		return this.saldo;
 	}
 	
-	public void Creditar (double valor) {
-		
-	}
+	public abstract Creditar (double valor);
 	
-	public void Debitar (double valor) {
-		
-	}
+	public abstract Debitar (double valor);
 		
 	public String toString() {
 		return "Nome da conta: "
