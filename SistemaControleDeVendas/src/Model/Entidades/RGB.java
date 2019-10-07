@@ -5,6 +5,24 @@ public class RGB extends Cor {
 	protected int red;
 	protected int green;
 	protected int blue;
+
+	public RGB() {
+	
+	}
+	
+	public String toString() {
+		return "red: " +getRed() 
+				+"\nblue: " +getBlue()
+				+"\ngreen: " +getGreen()
+				+"\n-----------";
+	}
+
+	public RGB(int red, int green, int blue) {
+		super();
+		this.red = red;
+		this.green = green;
+		this.blue = blue;
+	}
 	
 	public int getRed() {
 		return red;
@@ -20,6 +38,7 @@ public class RGB extends Cor {
 
 	public void setCor(String hex){
 		
+
 		String base = hex;
 		
 		red = Integer.parseInt ((String) base.subSequence(0, 2), 16);
@@ -28,7 +47,7 @@ public class RGB extends Cor {
 	}
 	
 	@Override
-	public double distanciaEuclidiana(RGB cor) {
+	public double getdistanciaEuclidiana(RGB cor) {
 		
 		double qtrBlue= (this.blue - cor.getBlue());
 		double qtrGreen= (this.green - cor.getGreen());
@@ -44,21 +63,5 @@ public class RGB extends Cor {
 
 		return Math.sqrt(Math.pow(qtrRed, 2) + Math.pow(qtrGreen, 2) + Math.pow(qtrBlue, 2));
 	}
-
-	public String toString() {
-		return "Red:"
-				+red
-				+"\nGreen:"
-				+green
-				+"\nBlue:"
-				+blue;
-	}
-
-	@Override
-	public int setQuantidade(int quantidade) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 
 }

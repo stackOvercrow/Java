@@ -1,15 +1,15 @@
 package Model.Entidades;
 
-public class Pigmento {
+
+public class Pigmento{
 	
 	private float preco;
-	private float quantidade;
-	private String id;
+	protected float quantidade;
+	private String id_pigmento;
 	private String nomeFantasia;
-	private String hexa;
+	private Cor cor;
 	
 	public Pigmento() {	
-		
 	}
 
 	public float getPreco() {
@@ -20,20 +20,29 @@ public class Pigmento {
 		this.preco = preco;
 	}
 
+	public float valor (float quantidade) {
+		return quantidade*this.preco;
+	}
+
 	public float getQuantidade() {
 		return quantidade;
 	}
 
 	public void setQuantidade(float quantidade) {
-		this.quantidade = quantidade;
+		this.quantidade = quantidade;		
+	}
+	
+	public void debitar (float pedido) {
+		this.quantidade = quantidade - pedido;
+	}
+	
+
+	public String getid_pigmento() {
+		return id_pigmento;
 	}
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
+	public void setid_pigmento(String id_pigmento) {
+		this.id_pigmento = id_pigmento;
 	}
 
 	public String getNomeFantasia() {
@@ -44,13 +53,15 @@ public class Pigmento {
 		this.nomeFantasia = nomeFantasia;
 	}
 
-	public String getHexa() {
-		return hexa;
+	public Cor getCor() {
+		return cor;
 	}
 
-	public void setHexa(String hexa) {
-		this.hexa = hexa;
+	public void setCor(Cor cor) {
+		this.cor = cor;
 	}
+
+	
 
 }
 
